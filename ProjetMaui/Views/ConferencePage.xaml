@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:vm="clr-namespace:ProjetMaui.ViewModels"
+			 xmlns:m="clr-namespace:ProjetMaui.Models"
+			 x:Class="ProjetMaui.Views.ConferencePage"
+			 x:DataType="vm:ConferenceViewModel">
+    <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
+        <CollectionView ItemsSource="{Binding Items}" >
+			<CollectionView.ItemTemplate>
+				<DataTemplate x:DataType="m:Conference">
+					<Frame 
+                       Padding="15,20,15,0"
+                       BorderColor="Transparent">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ConferenceViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+						</Frame.GestureRecognizers>
+
+                        <Grid>
+                            
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Frame
+                                Grid.Row="0"
+                                BorderColor="Gray" 
+                                CornerRadius="20"
+                                Padding="20" 
+                                Margin="10,10,10,10"
+                                HeightRequest="250" >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ConferenceViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Frame 
+                                    BackgroundColor="#171f22" 
+                                    Padding="10"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    CornerRadius="15" 
+                                    AbsoluteLayout.LayoutBounds="0.2, 0.3, 150, 100"
+                                    ZIndex="1" >
+
+                                        <Label 
+                                        Text="{Binding ConferenceStartDate, StringFormat='{0:dd/MM}'}" 
+                                        HorizontalOptions="Center" 
+                                        VerticalOptions="Center" 
+                                        FontSize="16" 
+                                        FontAttributes="Bold" 
+                                        TextColor="White" />
+                                    </Frame>
+
+                                    <Label 
+                                    Text="{Binding Name}" 
+                                    Grid.ColumnSpan="3"
+                                    Grid.Row="1"
+                                    FontSize="18" 
+                                    FontAttributes="Bold" />
+                                    
+                                    <Image
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        HeightRequest="20"
+                                        Source="calendar.png"
+                                        VerticalOptions="Start"
+                                       
+                                        />
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        VerticalTextAlignment="Start"
+                                           Text="{Binding ConferenceStartDate, StringFormat='{0:dd/MM/yyyy      - }'}" 
+                                        ></Label>
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="2"
+                                        VerticalTextAlignment="Start"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="Start"
+                                           Text="{Binding ConferenceEndDate, StringFormat='{0:dd/MM/yyyy}'}" 
+                                        ></Label>
+
+                                    <Button
+                                    
+                                        Grid.Row="4"
+                                        Grid.ColumnSpan="3"
+                                        BackgroundColor="#fe794e"
+                                        BorderColor="#fe794e"
+                                        FontSize="16"
+                                        CornerRadius="20"
+                                        Clicked="BookAConference"
+                                        CommandParameter="{Binding .}"
+                                        Text="Reservez une place">
+
+                                    </Button>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </Frame>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</RefreshView>
+</ContentPage>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:vm="clr-namespace:ProjetMaui.ViewModels"
+			 x:Class="ProjetMaui.Views.SettingsPage"
+			 x:DataType="vm:SettingsViewModel">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <!-- Paramètres généraux -->
+            <Label Text="Paramètres généraux"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   Margin="0,0,0,10" />
+            
+            <StackLayout>
+                <!-- Langue -->
+                <Rectangle HeightRequest="10"/>
+                
+                <Label 
+                    Text="Langue"
+                    FontSize="18"/>
+                
+                <Rectangle HeightRequest="10"/>
+
+                <Picker Title="Sélectionner une langue">
+                    <!-- Options de langue -->
+                </Picker>
+
+                <Rectangle HeightRequest="10"/>
+
+
+                <!-- Thème -->
+                <Label 
+                    Text="Thème" 
+                    FontSize="18"/>
+                
+                <Rectangle HeightRequest="10"/>
+
+                <Picker Title="Sélectionner un thème">
+                    <!-- Options de thème -->
+                </Picker>
+
+                <Rectangle HeightRequest="20"/>
+
+                <!-- Notifications -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        HeightRequest="30"
+                        Grid.Column="0"
+                        Text="Notifications" 
+                        VerticalOptions="Center"
+                        FontSize="18"/>
+                    <Switch 
+                        Grid.Column="1"
+                        VerticalOptions="End"
+                        IsToggled="true"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+	x:Class="ProjetMaui.AppShell"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:views="clr-namespace:ProjetMaui.Views"
+	xmlns:local="clr-namespace:ProjetMaui"
+    BackgroundColor="white"
+    ForegroundColor="#4552CB"
+    TitleColor="#4552CB"
+    DisabledColor="#B4FFFFFF"
+    UnselectedColor="#95FFFFFF"
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader HeightRequest="200">
+        <Grid Padding="20" 
+              BackgroundColor="#4552CB"
+              IsClippedToBounds="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Frame
+                BackgroundColor="#4552CB"
+                BorderColor="#4552CB"
+                Grid.Column="0"
+                Grid.Row="0"
+                HeightRequest="50">
+
+            </Frame>
+            <Frame Grid.Column="0" 
+                   Grid.Row="2"
+                   WidthRequest="100" 
+                   HeightRequest="100" 
+                   CornerRadius="50"
+                   Padding="0" 
+                   BackgroundColor="White">
+
+                <Image Source="pp2.jpg" 
+                       Aspect="AspectFill" />
+            </Frame>
+            <StackLayout 
+                VerticalOptions="Center"
+                Grid.Column="1" 
+                Grid.Row="2"
+                Margin="30,0,0,0">
+                <Label 
+                    Text="Username" 
+                    TextColor="White" 
+                    FontSize="24" />
+                <Label 
+                    Text="user@example.com" 
+                    TextColor="White" 
+                    FontSize="16" />
+            </StackLayout>
+            <Frame
+                BorderColor="#4552CB"
+                BackgroundColor="#4552CB"
+                Grid.Column="0"
+                Grid.Row="1"
+                HeightRequest="50">
+
+            </Frame>
+
+        </Grid>
+    </Shell.FlyoutHeader>
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Acceuil"
+		ContentTemplate="{DataTemplate views:MainPage}"
+		Route="MainPage" />
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Conférences"
+		FlyoutIcon="conference_icon.png"
+		ContentTemplate="{DataTemplate views:ConferencePage}"
+		Route="ConferencePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Articles"
+		FlyoutIcon="article_icon.png"
+		ContentTemplate="{DataTemplate views:ArticlePage}"
+		Route="ArticlePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Commentaires"
+		FlyoutIcon="author_icon.png"
+		ContentTemplate="{DataTemplate views:CommentPage}"
+		Route="CommentPage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Notifications"
+		FlyoutIcon="notification_icon.png"
+		ContentTemplate="{DataTemplate views:NotificationPage}"
+		Route="NotificationPage" />
+
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Profile"
+		FlyoutIcon="profile_icon.png"
+		ContentTemplate="{DataTemplate views:ProfilePage}"
+		Route="ProfilePage" />
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Paramètres"
+		FlyoutIcon="settings_icon.png"
+		ContentTemplate="{DataTemplate views:SettingsPage}"
+		Route="SettingsPage" />
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Se déconnecter"
+		FlyoutIcon="logout_icon.png"
+		ContentTemplate="{DataTemplate views:LogoutPage}"
+		Route="LogoutPage" />
+
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Conférence achevées"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:ConferenceDonePage}"
+		Route="ConferenceDonePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Ajouter un article"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:AddArticlePage}"
+		Route="AddArticlePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Ajouter une conférence"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:AddConferencePage}"
+		Route="AddConferencePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Auteur"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:AuthorPage}"
+		Route="AuthorPage" />
+	
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Relecteurs"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:ProofReaderPage}"
+		Route="ProofReaderPage" />
+	
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Ajouter un commentaire"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:AddCommentPage}"
+		Route="AddCommentPage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Affecter un relecteur"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:AffectProofReaderPage}"
+		Route="AffectProofReaderPage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Modifier une conference"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:UpdateConferencesPage}"
+		Route="UpdateConferencesPage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Modifier un commentaire"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:UpdateCommentsPage}"
+		Route="UpdateCommentsPage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Modifier un article"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:UpdateArticlesPage}"
+		Route="UpdateArticlesPage" />
+</Shell>
